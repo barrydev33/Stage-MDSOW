@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = fr.mdsow.\
+    gestionstock.config.SqlTestContainersSpringContextCustomizerFactory
