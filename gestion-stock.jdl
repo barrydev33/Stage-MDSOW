@@ -27,7 +27,7 @@ relationship ManyToOne {
 }
 
 relationship ManyToOne {
-	Produit{categorie(description)} to Categorie
+	Produit{categorie(nom)} to Categorie
 }
 
 dto * with mapstruct
