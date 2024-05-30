@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fournisseur()) {
+      <div>
+        <h2 data-cy="fournisseurDetailsHeading"><span jhiTranslate="gestionStockApp.fournisseur.detail.title">Fournisseur</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fournisseur()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="gestionStockApp.fournisseur.nom">Nom</span></dt>
+          <dd>
+            <span>{{ fournisseur()!.nom }}</span>
+          </dd>
+          <dt><span jhiTranslate="gestionStockApp.fournisseur.adresse">Adresse</span></dt>
+          <dd>
+            <span>{{ fournisseur()!.adresse }}</span>
+          </dd>
+          <dt><span jhiTranslate="gestionStockApp.fournisseur.contact">Contact</span></dt>
+          <dd>
+            <span>{{ fournisseur()!.contact }}</span>
+          </dd>
+          <dt><span jhiTranslate="gestionStockApp.fournisseur.profil">Profil</span></dt>
+          <dd>
+            @if (fournisseur()!.profil) {
+              <div>
+                <a (click)="openFile(fournisseur()!.profil ?? '', fournisseur()!.profilContentType)">
+                  <img
+                    [src]="'data:' + fournisseur()!.profilContentType + ';base64,' + fournisseur()!.profil"
+                    style="max-width: 100%"
+                    alt="fournisseur"
+                  />
+                </a>
+                {{ fournisseur()!.profilContentType }}, {{ byteSize(fournisseur()!.profil ?? '') }}
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/fournisseur', fournisseur()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

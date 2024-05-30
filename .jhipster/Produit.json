@@ -1,0 +1,33 @@
+{
+  "annotations": {
+    "changelogDate": "20240530133626"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "50",
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Float"
+    }
+  ],
+  "name": "Produit",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityField": "description",
+      "otherEntityName": "categorie",
+      "relationshipName": "categorie",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
