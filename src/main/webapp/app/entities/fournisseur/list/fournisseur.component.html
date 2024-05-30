@@ -1,0 +1,121 @@
+<div>
+  <h2 id="page-heading" data-cy="FournisseurHeading">
+    <span jhiTranslate="gestionStockApp.fournisseur.home.title">Fournisseurs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gestionStockApp.fournisseur.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-fournisseur"
+        [routerLink]="['/fournisseur/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gestionStockApp.fournisseur.home.createLabel">Créer un nouveau Fournisseur</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (fournisseurs?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="gestionStockApp.fournisseur.home.notFound">Aucun Fournisseur trouvé</span>
+    </div>
+  }
+
+  @if (fournisseurs && fournisseurs.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nom">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.fournisseur.nom">Nom</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="adresse">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.fournisseur.adresse">Adresse</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="contact">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.fournisseur.contact">Contact</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="profil">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.fournisseur.profil">Profil</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody infinite-scroll (scrolled)="loadNextPage()" [infiniteScrollDisabled]="!hasMorePage()" [infiniteScrollDistance]="0">
+          @for (fournisseur of fournisseurs; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/fournisseur', fournisseur.id, 'view']">{{ fournisseur.id }}</a>
+              </td>
+              <td>{{ fournisseur.nom }}</td>
+              <td>{{ fournisseur.adresse }}</td>
+              <td>{{ fournisseur.contact }}</td>
+              <td>
+                @if (fournisseur.profil) {
+                  <a (click)="openFile(fournisseur.profil, fournisseur.profilContentType)">
+                    <img
+                      [src]="'data:' + fournisseur.profilContentType + ';base64,' + fournisseur.profil"
+                      style="max-height: 30px"
+                      alt="fournisseur"
+                    />
+                  </a>
+                  <span>{{ fournisseur.profilContentType }}, {{ byteSize(fournisseur.profil) }}</span>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/fournisseur', fournisseur.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a [routerLink]="['/fournisseur', fournisseur.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(fournisseur)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

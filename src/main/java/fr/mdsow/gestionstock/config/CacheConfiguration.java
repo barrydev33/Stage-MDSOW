@@ -50,6 +50,10 @@ public class CacheConfiguration {
             createCache(cm, fr.mdsow.gestionstock.domain.User.class.getName());
             createCache(cm, fr.mdsow.gestionstock.domain.Authority.class.getName());
             createCache(cm, fr.mdsow.gestionstock.domain.User.class.getName() + ".authorities");
+            createCache(cm, fr.mdsow.gestionstock.domain.Categorie.class.getName());
+            createCache(cm, fr.mdsow.gestionstock.domain.Produit.class.getName());
+            createCache(cm, fr.mdsow.gestionstock.domain.Fournisseur.class.getName());
+            createCache(cm, fr.mdsow.gestionstock.domain.Approvisionnement.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

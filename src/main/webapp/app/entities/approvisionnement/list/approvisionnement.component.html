@@ -1,0 +1,128 @@
+<div>
+  <h2 id="page-heading" data-cy="ApprovisionnementHeading">
+    <span jhiTranslate="gestionStockApp.approvisionnement.home.title">Approvisionnements</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gestionStockApp.approvisionnement.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-approvisionnement"
+        [routerLink]="['/approvisionnement/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gestionStockApp.approvisionnement.home.createLabel">Créer un nouveau Approvisionnement</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (approvisionnements?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="gestionStockApp.approvisionnement.home.notFound">Aucun Approvisionnement trouvé</span>
+    </div>
+  }
+
+  @if (approvisionnements && approvisionnements.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="date">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.approvisionnement.date">Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="quantite">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.approvisionnement.quantite">Quantite</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fournisseur.nom">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.approvisionnement.fournisseur">Fournisseur</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="produit.nom">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.approvisionnement.produit">Produit</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody infinite-scroll (scrolled)="loadNextPage()" [infiniteScrollDisabled]="!hasMorePage()" [infiniteScrollDistance]="0">
+          @for (approvisionnement of approvisionnements; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/approvisionnement', approvisionnement.id, 'view']">{{ approvisionnement.id }}</a>
+              </td>
+              <td>{{ approvisionnement.date | formatMediumDatetime }}</td>
+              <td>{{ approvisionnement.quantite }}</td>
+              <td>
+                @if (approvisionnement.fournisseur) {
+                  <div>
+                    <a [routerLink]="['/fournisseur', approvisionnement.fournisseur.id, 'view']">{{ approvisionnement.fournisseur.nom }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (approvisionnement.produit) {
+                  <div>
+                    <a [routerLink]="['/produit', approvisionnement.produit.id, 'view']">{{ approvisionnement.produit.nom }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/approvisionnement', approvisionnement.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/approvisionnement', approvisionnement.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(approvisionnement)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

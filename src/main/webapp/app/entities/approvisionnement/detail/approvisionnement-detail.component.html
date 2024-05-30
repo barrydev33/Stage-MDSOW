@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (approvisionnement()) {
+      <div>
+        <h2 data-cy="approvisionnementDetailsHeading">
+          <span jhiTranslate="gestionStockApp.approvisionnement.detail.title">Approvisionnement</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ approvisionnement()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="gestionStockApp.approvisionnement.date">Date</span></dt>
+          <dd>
+            <span>{{ approvisionnement()!.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="gestionStockApp.approvisionnement.quantite">Quantite</span></dt>
+          <dd>
+            <span>{{ approvisionnement()!.quantite }}</span>
+          </dd>
+          <dt><span jhiTranslate="gestionStockApp.approvisionnement.fournisseur">Fournisseur</span></dt>
+          <dd>
+            @if (approvisionnement()!.fournisseur) {
+              <div>
+                <a [routerLink]="['/fournisseur', approvisionnement()!.fournisseur?.id, 'view']">{{
+                  approvisionnement()!.fournisseur?.nom
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="gestionStockApp.approvisionnement.produit">Produit</span></dt>
+          <dd>
+            @if (approvisionnement()!.produit) {
+              <div>
+                <a [routerLink]="['/produit', approvisionnement()!.produit?.id, 'view']">{{ approvisionnement()!.produit?.nom }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/approvisionnement', approvisionnement()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
