@@ -1,34 +1,34 @@
 import { IFournisseur, NewFournisseur } from './fournisseur.model';
 
 export const sampleWithRequiredData: IFournisseur = {
-  id: 11504,
-  nom: 'délégation au lieu de',
-  adresse: 'hisser',
-  contact: 'boum fonctionnaire',
+  id: 24137,
+  nom: 'même si exprès',
+  adresse: 'perplexe guider',
+  contact: 'altruiste',
 };
 
 export const sampleWithPartialData: IFournisseur = {
-  id: 143,
-  nom: 'sitôt que athlète',
-  adresse: 'chef de cuisine',
-  contact: 'pacifique auprès de groin groin',
+  id: 12958,
+  nom: 'de crainte que en au point que',
+  adresse: 'enfiler minuscule',
+  contact: 'boire',
   profil: '../fake-data/blob/hipster.png',
   profilContentType: 'unknown',
 };
 
 export const sampleWithFullData: IFournisseur = {
-  id: 30301,
-  nom: 'ouf',
-  adresse: 'ha ha suivant perplexe',
-  contact: 'poser infiniment',
+  id: 18816,
+  nom: 'reporter',
+  adresse: 'vivace',
+  contact: 'bien que',
   profil: '../fake-data/blob/hipster.png',
   profilContentType: 'unknown',
 };
 
 export const sampleWithNewData: NewFournisseur = {
-  nom: 'pin-pon super clac',
-  adresse: "présidence prout d'abord",
-  contact: 'clientèle bè solitaire',
+  nom: 'en bas de toc-toc',
+  adresse: 'partager maintenant auprès de',
+  contact: 'orange affranchir moins',
   id: null,
 };
 

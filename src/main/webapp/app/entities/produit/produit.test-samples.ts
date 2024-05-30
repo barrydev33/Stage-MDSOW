@@ -1,24 +1,23 @@
 import { IProduit, NewProduit } from './produit.model';
 
 export const sampleWithRequiredData: IProduit = {
-  id: 10494,
-  nom: 'multiple dring',
+  id: 11849,
+  nom: 'triangulaire enfiler expliquer',
 };
 
 export const sampleWithPartialData: IProduit = {
-  id: 3060,
-  nom: 'à peine par',
-  prix: 26469.14,
+  id: 6841,
+  nom: 'corps enseignant',
 };
 
 export const sampleWithFullData: IProduit = {
-  id: 23981,
-  nom: 'malade quitte à',
-  prix: 31275.79,
+  id: 4161,
+  nom: 'au-dessus de',
+  prix: 1402.92,
 };
 
 export const sampleWithNewData: NewProduit = {
-  nom: 'lors de',
+  nom: 'à côté de lire ouch',
   id: null,
 };
 

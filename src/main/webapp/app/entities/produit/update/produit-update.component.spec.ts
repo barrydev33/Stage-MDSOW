@@ -49,10 +49,10 @@ describe('Produit Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Categorie query and add missing value', () => {
       const produit: IProduit = { id: 456 };
-      const categorie: ICategorie = { id: 31342 };
+      const categorie: ICategorie = { id: 17326 };
       produit.categorie = categorie;
 
-      const categorieCollection: ICategorie[] = [{ id: 16851 }];
+      const categorieCollection: ICategorie[] = [{ id: 19438 }];
       jest.spyOn(categorieService, 'query').mockReturnValue(of(new HttpResponse({ body: categorieCollection })));
       const additionalCategories = [categorie];
       const expectedCollection: ICategorie[] = [...additionalCategories, ...categorieCollection];
@@ -71,7 +71,7 @@ describe('Produit Management Update Component', () => {
 
     it('Should update editForm', () => {
       const produit: IProduit = { id: 456 };
-      const categorie: ICategorie = { id: 17208 };
+      const categorie: ICategorie = { id: 14166 };
       produit.categorie = categorie;
 
       activatedRoute.data = of({ produit });

@@ -304,6 +304,8 @@ class CategorieResourceIT {
         Categorie partialUpdatedCategorie = new Categorie();
         partialUpdatedCategorie.setId(categorie.getId());
 
+        partialUpdatedCategorie.description(UPDATED_DESCRIPTION);
+
         restCategorieMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedCategorie.getId())
