@@ -11,12 +11,12 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring")
 public interface ProduitMapper extends EntityMapper<ProduitDTO, Produit> {
-    @Mapping(target = "categorie", source = "categorie", qualifiedByName = "categorieDescription")
+    @Mapping(target = "categorie", source = "categorie", qualifiedByName = "categorieNom")
     ProduitDTO toDto(Produit s);
 
-    @Named("categorieDescription")
+    @Named("categorieNom")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
-    @Mapping(target = "description", source = "description")
-    CategorieDTO toDtoCategorieDescription(Categorie categorie);
+    @Mapping(target = "nom", source = "nom")
+    CategorieDTO toDtoCategorieNom(Categorie categorie);
 }

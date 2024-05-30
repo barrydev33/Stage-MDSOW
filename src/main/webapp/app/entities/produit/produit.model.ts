@@ -4,7 +4,7 @@ export interface IProduit {
   id: number;
   nom?: string | null;
   prix?: number | null;
-  categorie?: Pick<ICategorie, 'id' | 'description'> | null;
+  categorie?: Pick<ICategorie, 'id' | 'nom'> | null;
 }
 
 export type NewProduit = Omit<IProduit, 'id'> & { id: null };

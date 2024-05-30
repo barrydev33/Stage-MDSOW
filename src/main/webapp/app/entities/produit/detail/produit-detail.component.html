@@ -27,7 +27,7 @@
           <dd>
             @if (produit()!.categorie) {
               <div>
-                <a [routerLink]="['/categorie', produit()!.categorie?.id, 'view']">{{ produit()!.categorie?.description }}</a>
+                <a [routerLink]="['/categorie', produit()!.categorie?.id, 'view']">{{ produit()!.categorie?.nom }}</a>
               </div>
             }
           </dd>
