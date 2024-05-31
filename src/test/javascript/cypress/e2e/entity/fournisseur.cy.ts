@@ -15,7 +15,7 @@ describe('Fournisseur e2e test', () => {
   const fournisseurPageUrlPattern = new RegExp('/fournisseur(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const fournisseurSample = { nom: 'si', adresse: 'dring diplomate comme', contact: 'de peur de traduire toc-toc' };
+  const fournisseurSample = { nom: 'sur', adresse: 'autant', contact: 'pourvu que' };
 
   let fournisseur;
 
@@ -160,14 +160,14 @@ describe('Fournisseur e2e test', () => {
     });
 
     it('should create an instance of Fournisseur', () => {
-      cy.get(`[data-cy="nom"]`).type('brave tout ouin');
-      cy.get(`[data-cy="nom"]`).should('have.value', 'brave tout ouin');
+      cy.get(`[data-cy="nom"]`).type('vlan ailleurs innombrable');
+      cy.get(`[data-cy="nom"]`).should('have.value', 'vlan ailleurs innombrable');
 
-      cy.get(`[data-cy="adresse"]`).type('fixer');
-      cy.get(`[data-cy="adresse"]`).should('have.value', 'fixer');
+      cy.get(`[data-cy="adresse"]`).type('vraisemblablement pauvre');
+      cy.get(`[data-cy="adresse"]`).should('have.value', 'vraisemblablement pauvre');
 
-      cy.get(`[data-cy="contact"]`).type('contre du moment que davantage');
-      cy.get(`[data-cy="contact"]`).should('have.value', 'contre du moment que davantage');
+      cy.get(`[data-cy="contact"]`).type('orange via oups');
+      cy.get(`[data-cy="contact"]`).should('have.value', 'orange via oups');
 
       cy.setFieldImageAsBytesOfEntity('profil', 'integration-test.png', 'image/png');
 

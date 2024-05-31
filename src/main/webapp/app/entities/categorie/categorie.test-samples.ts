@@ -1,26 +1,26 @@
 import { ICategorie, NewCategorie } from './categorie.model';
 
 export const sampleWithRequiredData: ICategorie = {
-  id: 21426,
-  nom: 'au défaut de plutôt',
-  description: 'quand ouah membre titulaire',
+  id: 21380,
+  nom: 'direction aigre',
+  description: 'toc-toc un peu',
 };
 
 export const sampleWithPartialData: ICategorie = {
-  id: 2850,
-  nom: 'population du Québec de façon à camarade',
-  description: 'conseil d’administration novice',
+  id: 32738,
+  nom: 'lorsque prout calme',
+  description: 'au cas où sale',
 };
 
 export const sampleWithFullData: ICategorie = {
-  id: 24770,
-  nom: 'mal amorphe simple',
-  description: 'sous',
+  id: 23143,
+  nom: 'apparemment',
+  description: 'dès que sitôt que au-dessous de',
 };
 
 export const sampleWithNewData: NewCategorie = {
-  nom: 'en dehors de',
-  description: 'extra',
+  nom: 'complètement',
+  description: 'neutre hi',
   id: null,
 };
 

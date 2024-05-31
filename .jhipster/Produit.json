@@ -21,7 +21,7 @@
   "pagination": "infinite-scroll",
   "relationships": [
     {
-      "otherEntityField": "description",
+      "otherEntityField": "nom",
       "otherEntityName": "categorie",
       "relationshipName": "categorie",
       "relationshipSide": "left",

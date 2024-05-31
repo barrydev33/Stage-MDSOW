@@ -15,7 +15,7 @@ describe('Approvisionnement e2e test', () => {
   const approvisionnementPageUrlPattern = new RegExp('/approvisionnement(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const approvisionnementSample = { date: '2024-05-30T11:51:34.868Z', quantite: 28327 };
+  const approvisionnementSample = { date: '2024-05-30T04:51:20.494Z', quantite: 27 };
 
   let approvisionnement;
 
@@ -160,12 +160,12 @@ describe('Approvisionnement e2e test', () => {
     });
 
     it('should create an instance of Approvisionnement', () => {
-      cy.get(`[data-cy="date"]`).type('2024-05-29T18:04');
+      cy.get(`[data-cy="date"]`).type('2024-05-30T03:31');
       cy.get(`[data-cy="date"]`).blur();
-      cy.get(`[data-cy="date"]`).should('have.value', '2024-05-29T18:04');
+      cy.get(`[data-cy="date"]`).should('have.value', '2024-05-30T03:31');
 
-      cy.get(`[data-cy="quantite"]`).type('26588');
-      cy.get(`[data-cy="quantite"]`).should('have.value', '26588');
+      cy.get(`[data-cy="quantite"]`).type('19538');
+      cy.get(`[data-cy="quantite"]`).should('have.value', '19538');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

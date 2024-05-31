@@ -315,6 +315,8 @@ class ProduitResourceIT {
         Produit partialUpdatedProduit = new Produit();
         partialUpdatedProduit.setId(produit.getId());
 
+        partialUpdatedProduit.nom(UPDATED_NOM);
+
         restProduitMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedProduit.getId())

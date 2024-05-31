@@ -338,6 +338,8 @@ class ApprovisionnementResourceIT {
         Approvisionnement partialUpdatedApprovisionnement = new Approvisionnement();
         partialUpdatedApprovisionnement.setId(approvisionnement.getId());
 
+        partialUpdatedApprovisionnement.quantite(UPDATED_QUANTITE);
+
         restApprovisionnementMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedApprovisionnement.getId())

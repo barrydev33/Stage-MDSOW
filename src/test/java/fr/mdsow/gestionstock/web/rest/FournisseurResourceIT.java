@@ -351,8 +351,6 @@ class FournisseurResourceIT {
         Fournisseur partialUpdatedFournisseur = new Fournisseur();
         partialUpdatedFournisseur.setId(fournisseur.getId());
 
-        partialUpdatedFournisseur.adresse(UPDATED_ADRESSE).contact(UPDATED_CONTACT);
-
         restFournisseurMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedFournisseur.getId())
