@@ -51,7 +51,7 @@
             name="categorie"
             formControlName="categorie"
             [compareWith]="compareCategorie"
-            disabled
+            [disabled]="true"
           >
             <!--Attribut ajouté pour masquer la catégorie lors de la modification dun produit -->
             <option [ngValue]="null"></option>
