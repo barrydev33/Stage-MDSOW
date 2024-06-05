@@ -51,7 +51,9 @@
             name="categorie"
             formControlName="categorie"
             [compareWith]="compareCategorie"
+            [disabled]="true"
           >
+            <!--Attribut ajouté pour masquer la catégorie lors de la modification dun produit -->
             <option [ngValue]="null"></option>
             @for (categorieOption of categoriesSharedCollection; track $index) {
               <option [ngValue]="categorieOption">{{ categorieOption.nom }}</option>
