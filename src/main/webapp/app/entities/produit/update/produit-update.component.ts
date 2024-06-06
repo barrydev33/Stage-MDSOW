@@ -22,7 +22,6 @@ import { ProduitFormService, ProduitFormGroup } from './produit-form.service';
 export class ProduitUpdateComponent implements OnInit {
   isSaving = false;
   produit: IProduit | null = null;
-  isEditMode = false; // Desactiver le mode edition
 
   categoriesSharedCollection: ICategorie[] = [];
 
@@ -41,10 +40,6 @@ export class ProduitUpdateComponent implements OnInit {
       this.produit = produit;
       if (produit) {
         this.updateForm(produit);
-        this.isEditMode = !!produit.id; // Initialisation de isEditMode
-      }
-      if (this.isEditMode) {
-        this.editForm.get('categorie')!.disable(); // Desactiver le champ categorie en mode edidtion d'un produit
       }
 
       this.loadRelationshipsOptions();

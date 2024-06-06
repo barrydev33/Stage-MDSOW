@@ -23,6 +23,7 @@ type FournisseurFormGroupContent = {
   contact: FormControl<IFournisseur['contact']>;
   profil: FormControl<IFournisseur['profil']>;
   profilContentType: FormControl<IFournisseur['profilContentType']>;
+  age: FormControl<IFournisseur['age']>;
 };
 
 export type FournisseurFormGroup = FormGroup<FournisseurFormGroupContent>;
@@ -53,6 +54,7 @@ export class FournisseurFormService {
       }),
       profil: new FormControl(fournisseurRawValue.profil),
       profilContentType: new FormControl(fournisseurRawValue.profilContentType),
+      age: new FormControl(fournisseurRawValue.age),
     });
   }
 

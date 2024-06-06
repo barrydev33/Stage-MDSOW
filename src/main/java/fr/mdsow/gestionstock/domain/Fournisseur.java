@@ -43,6 +43,9 @@ public class Fournisseur implements Serializable {
     @Column(name = "profil_content_type")
     private String profilContentType;
 
+    @Column(name = "age")
+    private Integer age;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -123,6 +126,19 @@ public class Fournisseur implements Serializable {
         this.profilContentType = profilContentType;
     }
 
+    public Integer getAge() {
+        return this.age;
+    }
+
+    public Fournisseur age(Integer age) {
+        this.setAge(age);
+        return this;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -152,6 +168,7 @@ public class Fournisseur implements Serializable {
             ", contact='" + getContact() + "'" +
             ", profil='" + getProfil() + "'" +
             ", profilContentType='" + getProfilContentType() + "'" +
+            ", age=" + getAge() +
             "}";
     }
 }

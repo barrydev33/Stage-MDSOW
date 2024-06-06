@@ -15,7 +15,7 @@ describe('Produit e2e test', () => {
   const produitPageUrlPattern = new RegExp('/produit(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const produitSample = { nom: 'vu que aux environs de' };
+  const produitSample = { nom: 'ouah' };
 
   let produit;
 
@@ -160,11 +160,11 @@ describe('Produit e2e test', () => {
     });
 
     it('should create an instance of Produit', () => {
-      cy.get(`[data-cy="nom"]`).type('restreindre');
-      cy.get(`[data-cy="nom"]`).should('have.value', 'restreindre');
+      cy.get(`[data-cy="nom"]`).type('triathlète par rapport à tsoin-tsoin');
+      cy.get(`[data-cy="nom"]`).should('have.value', 'triathlète par rapport à tsoin-tsoin');
 
-      cy.get(`[data-cy="prix"]`).type('7859.83');
-      cy.get(`[data-cy="prix"]`).should('have.value', '7859.83');
+      cy.get(`[data-cy="prix"]`).type('19218.93');
+      cy.get(`[data-cy="prix"]`).should('have.value', '19218.93');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

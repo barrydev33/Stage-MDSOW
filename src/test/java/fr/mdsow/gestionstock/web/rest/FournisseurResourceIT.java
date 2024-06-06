@@ -48,6 +48,9 @@ class FournisseurResourceIT {
     private static final String DEFAULT_PROFIL_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_PROFIL_CONTENT_TYPE = "image/png";
 
+    private static final Integer DEFAULT_AGE = 1;
+    private static final Integer UPDATED_AGE = 2;
+
     private static final String ENTITY_API_URL = "/api/fournisseurs";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -83,7 +86,8 @@ class FournisseurResourceIT {
             .adresse(DEFAULT_ADRESSE)
             .contact(DEFAULT_CONTACT)
             .profil(DEFAULT_PROFIL)
-            .profilContentType(DEFAULT_PROFIL_CONTENT_TYPE);
+            .profilContentType(DEFAULT_PROFIL_CONTENT_TYPE)
+            .age(DEFAULT_AGE);
         return fournisseur;
     }
 
@@ -99,7 +103,8 @@ class FournisseurResourceIT {
             .adresse(UPDATED_ADRESSE)
             .contact(UPDATED_CONTACT)
             .profil(UPDATED_PROFIL)
-            .profilContentType(UPDATED_PROFIL_CONTENT_TYPE);
+            .profilContentType(UPDATED_PROFIL_CONTENT_TYPE)
+            .age(UPDATED_AGE);
         return fournisseur;
     }
 
@@ -215,7 +220,8 @@ class FournisseurResourceIT {
             .andExpect(jsonPath("$.[*].adresse").value(hasItem(DEFAULT_ADRESSE)))
             .andExpect(jsonPath("$.[*].contact").value(hasItem(DEFAULT_CONTACT)))
             .andExpect(jsonPath("$.[*].profilContentType").value(hasItem(DEFAULT_PROFIL_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].profil").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_PROFIL))));
+            .andExpect(jsonPath("$.[*].profil").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_PROFIL))))
+            .andExpect(jsonPath("$.[*].age").value(hasItem(DEFAULT_AGE)));
     }
 
     @Test
@@ -234,7 +240,8 @@ class FournisseurResourceIT {
             .andExpect(jsonPath("$.adresse").value(DEFAULT_ADRESSE))
             .andExpect(jsonPath("$.contact").value(DEFAULT_CONTACT))
             .andExpect(jsonPath("$.profilContentType").value(DEFAULT_PROFIL_CONTENT_TYPE))
-            .andExpect(jsonPath("$.profil").value(Base64.getEncoder().encodeToString(DEFAULT_PROFIL)));
+            .andExpect(jsonPath("$.profil").value(Base64.getEncoder().encodeToString(DEFAULT_PROFIL)))
+            .andExpect(jsonPath("$.age").value(DEFAULT_AGE));
     }
 
     @Test
@@ -261,7 +268,8 @@ class FournisseurResourceIT {
             .adresse(UPDATED_ADRESSE)
             .contact(UPDATED_CONTACT)
             .profil(UPDATED_PROFIL)
-            .profilContentType(UPDATED_PROFIL_CONTENT_TYPE);
+            .profilContentType(UPDATED_PROFIL_CONTENT_TYPE)
+            .age(UPDATED_AGE);
         FournisseurDTO fournisseurDTO = fournisseurMapper.toDto(updatedFournisseur);
 
         restFournisseurMockMvc
@@ -351,6 +359,8 @@ class FournisseurResourceIT {
         Fournisseur partialUpdatedFournisseur = new Fournisseur();
         partialUpdatedFournisseur.setId(fournisseur.getId());
 
+        partialUpdatedFournisseur.adresse(UPDATED_ADRESSE).contact(UPDATED_CONTACT).age(UPDATED_AGE);
+
         restFournisseurMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedFournisseur.getId())
@@ -385,7 +395,8 @@ class FournisseurResourceIT {
             .adresse(UPDATED_ADRESSE)
             .contact(UPDATED_CONTACT)
             .profil(UPDATED_PROFIL)
-            .profilContentType(UPDATED_PROFIL_CONTENT_TYPE);
+            .profilContentType(UPDATED_PROFIL_CONTENT_TYPE)
+            .age(UPDATED_AGE);
 
         restFournisseurMockMvc
             .perform(

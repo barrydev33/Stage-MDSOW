@@ -24,6 +24,7 @@ describe('Fournisseur Form Service', () => {
             adresse: expect.any(Object),
             contact: expect.any(Object),
             profil: expect.any(Object),
+            age: expect.any(Object),
           }),
         );
       });
@@ -38,6 +39,7 @@ describe('Fournisseur Form Service', () => {
             adresse: expect.any(Object),
             contact: expect.any(Object),
             profil: expect.any(Object),
+            age: expect.any(Object),
           }),
         );
       });

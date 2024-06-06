@@ -70,6 +70,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="age">
+              <div class="d-flex">
+                <span jhiTranslate="gestionStockApp.fournisseur.age">Age</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -94,6 +101,7 @@
                   <span>{{ fournisseur.profilContentType }}, {{ byteSize(fournisseur.profil) }}</span>
                 }
               </td>
+              <td>{{ fournisseur.age }}</td>
               <td class="text-end">
                 <div class="btn-group">
                   <a [routerLink]="['/fournisseur', fournisseur.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

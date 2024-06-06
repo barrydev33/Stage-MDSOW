@@ -28,6 +28,8 @@ public class FournisseurDTO implements Serializable {
 
     private String profilContentType;
 
+    private Integer age;
+
     public Long getId() {
         return id;
     }
@@ -76,6 +78,14 @@ public class FournisseurDTO implements Serializable {
         this.profilContentType = profilContentType;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -106,6 +116,7 @@ public class FournisseurDTO implements Serializable {
             ", adresse='" + getAdresse() + "'" +
             ", contact='" + getContact() + "'" +
             ", profil='" + getProfil() + "'" +
+            ", age=" + getAge() +
             "}";
     }
 }

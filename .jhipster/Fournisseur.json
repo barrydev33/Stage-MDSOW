@@ -26,6 +26,10 @@
       "fieldName": "profil",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer"
     }
   ],
   "name": "Fournisseur",

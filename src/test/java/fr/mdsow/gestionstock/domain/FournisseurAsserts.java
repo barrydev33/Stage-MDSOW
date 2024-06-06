@@ -51,7 +51,8 @@ public class FournisseurAsserts {
             .satisfies(e -> assertThat(e.getAdresse()).as("check adresse").isEqualTo(actual.getAdresse()))
             .satisfies(e -> assertThat(e.getContact()).as("check contact").isEqualTo(actual.getContact()))
             .satisfies(e -> assertThat(e.getProfil()).as("check profil").isEqualTo(actual.getProfil()))
-            .satisfies(e -> assertThat(e.getProfilContentType()).as("check profil contenty type").isEqualTo(actual.getProfilContentType()));
+            .satisfies(e -> assertThat(e.getProfilContentType()).as("check profil contenty type").isEqualTo(actual.getProfilContentType()))
+            .satisfies(e -> assertThat(e.getAge()).as("check age").isEqualTo(actual.getAge()));
     }
 
     /**

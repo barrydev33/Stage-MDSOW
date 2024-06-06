@@ -21,7 +21,8 @@
       "nom": "Nom",
       "adresse": "Adresse",
       "contact": "Contact",
-      "profil": "Profil"
+      "profil": "Profil",
+      "age": "Age"
     }
   }
 }

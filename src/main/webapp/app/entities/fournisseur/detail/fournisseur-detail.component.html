@@ -42,6 +42,10 @@
               </div>
             }
           </dd>
+          <dt><span jhiTranslate="gestionStockApp.fournisseur.age">Age</span></dt>
+          <dd>
+            <span>{{ fournisseur()!.age }}</span>
+          </dd>
         </dl>
 
         <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

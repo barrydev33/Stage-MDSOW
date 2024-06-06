@@ -53,10 +53,10 @@ describe('Approvisionnement Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Fournisseur query and add missing value', () => {
       const approvisionnement: IApprovisionnement = { id: 456 };
-      const fournisseur: IFournisseur = { id: 11172 };
+      const fournisseur: IFournisseur = { id: 20886 };
       approvisionnement.fournisseur = fournisseur;
 
-      const fournisseurCollection: IFournisseur[] = [{ id: 17300 }];
+      const fournisseurCollection: IFournisseur[] = [{ id: 27143 }];
       jest.spyOn(fournisseurService, 'query').mockReturnValue(of(new HttpResponse({ body: fournisseurCollection })));
       const additionalFournisseurs = [fournisseur];
       const expectedCollection: IFournisseur[] = [...additionalFournisseurs, ...fournisseurCollection];
@@ -75,10 +75,10 @@ describe('Approvisionnement Management Update Component', () => {
 
     it('Should call Produit query and add missing value', () => {
       const approvisionnement: IApprovisionnement = { id: 456 };
-      const produit: IProduit = { id: 29493 };
+      const produit: IProduit = { id: 7821 };
       approvisionnement.produit = produit;
 
-      const produitCollection: IProduit[] = [{ id: 11402 }];
+      const produitCollection: IProduit[] = [{ id: 25379 }];
       jest.spyOn(produitService, 'query').mockReturnValue(of(new HttpResponse({ body: produitCollection })));
       const additionalProduits = [produit];
       const expectedCollection: IProduit[] = [...additionalProduits, ...produitCollection];
@@ -97,9 +97,9 @@ describe('Approvisionnement Management Update Component', () => {
 
     it('Should update editForm', () => {
       const approvisionnement: IApprovisionnement = { id: 456 };
-      const fournisseur: IFournisseur = { id: 14860 };
+      const fournisseur: IFournisseur = { id: 24975 };
       approvisionnement.fournisseur = fournisseur;
-      const produit: IProduit = { id: 14482 };
+      const produit: IProduit = { id: 11580 };
       approvisionnement.produit = produit;
 
       activatedRoute.data = of({ approvisionnement });

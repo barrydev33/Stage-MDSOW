@@ -15,7 +15,7 @@ describe('Fournisseur e2e test', () => {
   const fournisseurPageUrlPattern = new RegExp('/fournisseur(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const fournisseurSample = { nom: 'sur', adresse: 'autant', contact: 'pourvu que' };
+  const fournisseurSample = { nom: 'tandis que avex subsister', adresse: 'après', contact: 'dense' };
 
   let fournisseur;
 
@@ -160,16 +160,19 @@ describe('Fournisseur e2e test', () => {
     });
 
     it('should create an instance of Fournisseur', () => {
-      cy.get(`[data-cy="nom"]`).type('vlan ailleurs innombrable');
-      cy.get(`[data-cy="nom"]`).should('have.value', 'vlan ailleurs innombrable');
+      cy.get(`[data-cy="nom"]`).type('hystérique porte-parole bè');
+      cy.get(`[data-cy="nom"]`).should('have.value', 'hystérique porte-parole bè');
 
-      cy.get(`[data-cy="adresse"]`).type('vraisemblablement pauvre');
-      cy.get(`[data-cy="adresse"]`).should('have.value', 'vraisemblablement pauvre');
+      cy.get(`[data-cy="adresse"]`).type('tard dedans');
+      cy.get(`[data-cy="adresse"]`).should('have.value', 'tard dedans');
 
-      cy.get(`[data-cy="contact"]`).type('orange via oups');
-      cy.get(`[data-cy="contact"]`).should('have.value', 'orange via oups');
+      cy.get(`[data-cy="contact"]`).type('éclater dissiper');
+      cy.get(`[data-cy="contact"]`).should('have.value', 'éclater dissiper');
 
       cy.setFieldImageAsBytesOfEntity('profil', 'integration-test.png', 'image/png');
+
+      cy.get(`[data-cy="age"]`).type('5966');
+      cy.get(`[data-cy="age"]`).should('have.value', '5966');
 
       // since cypress clicks submit too fast before the blob fields are validated
       cy.wait(200); // eslint-disable-line cypress/no-unnecessary-waiting
